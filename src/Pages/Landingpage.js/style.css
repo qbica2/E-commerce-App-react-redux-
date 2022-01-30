@@ -1,0 +1,44 @@
+.carousel-container{
+
+    width: 90vw;
+    height:70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-left-right{
+  display: flex;
+  flex: 0 15%;
+  justify-content:center;
+  align-items:center;
+}
+.carousel-middle{
+    height: 100%;
+    flex: 0 70%;
+    display: flex;
+    flex-direction:column;
+}
+.carousel-img-container{
+    flex: 0 80%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-content{
+    flex: 0 20%;
+    background-color:pink;
+}
+.img-btn{
+    width:10px;
+    height:10px;
+    background-color:#ccc;
+}
+.selected{
+    background-color:rgba(17, 15, 15, 0.74);
+}
+
+

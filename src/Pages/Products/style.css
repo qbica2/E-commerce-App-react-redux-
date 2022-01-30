@@ -1,0 +1,161 @@
+.content{
+    width: 100vw;
+    display:flex;
+    justify-content: space-around;
+    
+}
+/* .filterbar{
+    height:200vh;
+    flex:0 20%;
+    background-color:red;
+
+} */
+.products-content{
+    height:200vh;
+    flex: 0 70%;
+
+    display:flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.product{
+    height:60vh;
+    flex: 0 23%;
+    margin: 0 10px 5px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.08), 
+    0 10px 10px rgba(0,0,0,0.08);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.product-image-div{
+    width: 100%;
+    height: 40%;
+}
+
+.description{
+    width: 100%;
+    height: 30%;
+
+    text-decoration: none;
+    color: #000;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.description:hover{
+    color:#000
+}
+
+.product-buttons{
+    width: 100%;
+    height: 20%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-image{
+    width: 100%;
+    height: 100%;
+}
+
+.product-price{
+    color:green;
+    font-size:3vh;
+    font-weight:bold;
+}
+
+.Addbasket{
+    border:1px solid #ff6000;
+    background-color: #ff6000;
+    width: 200px;
+    height: 50px;
+
+    border-radius:10px;
+    font-weight: 600;
+}
+
+.Addbasket:focus{
+    background-color:green
+}
+
+/* =================== Details==================== */
+.detail-container{
+    width:90vw;
+    height:180vh;
+    display: flex;
+    justify-content: space-around;
+
+}
+.detail-image-container{
+    flex: 0 50%;
+    height:50%;
+}
+.detail-image{
+    width: 100%;
+    height: 100%;
+}
+.detail-right-container{
+    flex: 0 40%;
+    color:#484848;
+    font-size:24px;
+    font-weight:bold;
+}
+.detail-description{
+    font-size:18px;
+    font-weight:normal
+}
+.detail-price{
+    color:aquamarine;
+    font-size:40px;
+
+}
+.product-count-container{
+    width:120px;
+    height:60px;
+    background-color:#ccc;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.product-count{
+    width:50px;
+    font-size: 24px;
+    font-weight: 700;
+    text-align:center
+}
+.decrement:hover,.increment:hover{
+    color:red;
+    cursor: pointer;
+}
+.detail-addbasket{
+    border:1px solid #ff6000;
+    background-color: #ff6000;
+    width: 200px;
+    height: 60px;
+    color: #fff;
+    border-radius:10px;
+    font-weight: 600;
+}
+.detail-bottom{
+    width: 350px;
+    display:flex;
+    justify-content:space-around;
+}
+/* input type number içindeki arrowları kaldırmak için */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
