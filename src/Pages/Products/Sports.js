@@ -8,6 +8,7 @@ import Filter from '../../components/Filter'
 
 import { getAllProducts,changeFilterType,checkedFourStar, checkedTwoStar, checkedOneStar,checkedThreeStar} from "../../redux/ProductsSlice"
 import { useDispatch, useSelector } from "react-redux"
+import {AddtoBasket} from "../../redux/BasketSlice"
 
 import "./style.css"
 import StarIcon from '@mui/icons-material/Star';
@@ -25,6 +26,7 @@ function Sports() {
   const data = useSelector(state => state.products.allProducts)
   const status = useSelector(state => state.products.status)
   const filter = useSelector(state=>state.products.filter)
+  const basketItems = useSelector(state=>state.basket.items)
   
 
 
@@ -36,6 +38,15 @@ function Sports() {
     dispatch(checkedTwoStar(false))
     dispatch(checkedOneStar(false))
   }, [dispatch])
+
+  const handleAddtoBasket = (item,id) => {
+    const findBasketitem = basketItems.find(item=>item.id === id)
+    if(findBasketitem){
+      alert("ürün zaten sepetinizde")
+      return false
+    }
+    dispatch(AddtoBasket(item,id))
+  }
 
   if(filter.filterType === "All"){
     filtered=data
@@ -305,7 +316,7 @@ function Sports() {
                 <Link to={`/${item.id}`} className="product-image-div">
                   <img src={item.image} alt={item.category} className="product-image" />
                 </Link>
-                <Link to={`products/${item.id}`} className="description">
+                <Link to={`/${item.id}`} className="description">
                   <div >{item.title}</div>
                   <div className="product-price">{item.price}$</div>
                   <div><StarIcon sx={{ color: orange[500] }} /><span style={{ fontWeight: 'bold' }}>{item.rating.rate}</span> {" "} <CircleIcon sx={
@@ -313,7 +324,7 @@ function Sports() {
                 </Link>
                 <div className="product-buttons">
                   <div>
-                    <button className="Addbasket">Sepete Ekle</button>
+                    <button className="Addbasket" onClick={()=>handleAddtoBasket(item,item.id)}>Sepete Ekle</button>
                   </div>
                 </div>
 

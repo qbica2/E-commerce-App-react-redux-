@@ -17,6 +17,8 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
+import {AddtoBasketfromDetail} from "../../redux/BasketSlice"
+
 function Details() {
     let { id } = useParams();
     const dispatch = useDispatch()
@@ -30,7 +32,7 @@ function Details() {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setFetch(true)
-        }, 1000)
+        }, 2000)
 
         return () => clearTimeout(timeout)
     }, [fetch])
@@ -47,6 +49,18 @@ function Details() {
             return false
         }
         setNumber(number - 1)
+    }
+
+    const handleAddtoBasket = (data,number) => {
+            if(number === 0) {
+                alert('adet 0 olamaz')
+                return false;
+            }
+        // data= {...data,count:number}
+        // Object.assign(data,{count:number})
+        let newObj={...data,count:number}
+        dispatch(AddtoBasketfromDetail(newObj))
+
     }
 
     return (
@@ -75,7 +89,8 @@ function Details() {
                             <AddIcon onClick={() => setNumber(Number(number) + 1)} className="increment" />
                         </div>
                         
-                            <button className="detail-addbasket"><ShoppingCartIcon sx={{ color: grey[50] }}/>Sepete Ekle</button>
+                            <button className="detail-addbasket" 
+                            onClick={()=>handleAddtoBasket(data,number)}><ShoppingCartIcon sx={{ color: grey[50] }}/>Sepete Ekle</button>
                         
                     </div>
 

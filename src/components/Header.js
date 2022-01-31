@@ -27,8 +27,9 @@ function Header() {
 // const numberofProducts = useSelector(state => state.user.basket).length
 
 const isLoggedIn = useSelector(state => state.user.isLoggedIn)
-const number = useSelector(state => state.basket.items.length)
+const items = useSelector(state => state.basket.items)
 
+let sum;
 
     return (
         <div className="header">
@@ -46,7 +47,7 @@ const number = useSelector(state => state.basket.items.length)
 
             <div className="basket-container">
                 <IconButton aria-label="cart">
-                    <StyledBadge badgeContent={number} color="warning">
+                    <StyledBadge badgeContent={sum} color="warning">
                         <ShoppingCartIcon />
                     </StyledBadge>
                 </IconButton>

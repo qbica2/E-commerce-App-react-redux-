@@ -1,6 +1,6 @@
 import './App.css';
 
-import LandingPage from './Pages/Landingpage.js'
+import LandingPage from './Pages/Landingpage'
 import Login from './Pages/Login/index.js'
 import Electronics from "./Pages/Products/Electronics"
 import Women from "./Pages/Products/Women"

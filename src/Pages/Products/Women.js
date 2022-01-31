@@ -8,6 +8,7 @@ import Filter from '../../components/Filter'
 
 import { getProductsByCategory,changeFilterType,checkedFourStar, checkedTwoStar, checkedOneStar,checkedThreeStar} from "../../redux/ProductsSlice"
 import { useDispatch, useSelector } from "react-redux"
+import {AddtoBasket} from "../../redux/BasketSlice"
 
 import "./style.css"
 import StarIcon from '@mui/icons-material/Star';
@@ -27,6 +28,7 @@ function Women() {
   const status = useSelector(state => state.products.status)
 
   const filter = useSelector(state=>state.products.filter)
+  const basketItems = useSelector(state=>state.basket.items)
 
 
   useEffect(() => {
@@ -37,6 +39,15 @@ function Women() {
     dispatch(checkedTwoStar(false))
     dispatch(checkedOneStar(false))
   }, [dispatch])
+
+  const handleAddtoBasket = (item,id) => {
+    const findBasketitem = basketItems.find(item=>item.id === id)
+    if(findBasketitem){
+      alert("ürün zaten sepetinizde")
+      return false
+    }
+    dispatch(AddtoBasket(item,id))
+  }
 
   if(filter.filterType === "All"){
     filtered=data
@@ -314,7 +325,7 @@ function Women() {
                 </Link>
                 <div className="product-buttons">
                   <div>
-                    <button className="Addbasket">Sepete Ekle</button>
+                    <button className="Addbasket" onClick={()=>handleAddtoBasket(item,item.id)}>Sepete Ekle</button>
                   </div>
                 </div>
 

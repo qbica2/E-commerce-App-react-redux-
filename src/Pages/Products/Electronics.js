@@ -28,6 +28,8 @@ function Electronics() {
  
   const filter = useSelector(state=>state.products.filter)
 
+  const basketItems = useSelector(state=>state.basket.items)
+
 
   useEffect(() => {
     dispatch(getProductsByCategory("electronics"))
@@ -38,6 +40,16 @@ function Electronics() {
     dispatch(checkedOneStar(false))
     
   }, [dispatch])
+
+  const handleAddtoBasket = (item,id) => {
+    const findBasketitem = basketItems.find(item=>item.id === id)
+    if(findBasketitem){
+      alert("ürün zaten sepetinizde")
+      return false
+    }
+    let newObj={...item,count:1}
+    dispatch(AddtoBasket(newObj))
+  }
 
   if(filter.filterType === "All"){
     filtered=data
@@ -306,7 +318,7 @@ function Electronics() {
                 <Link to={`/${item.id}`} className="product-image-div">
                   <img src={item.image} alt={item.category} className="product-image" />
                 </Link>
-                <Link to={`products/${item.id}`} className="description">
+                <Link to={`/${item.id}`} className="description">
                   <div >{item.title}</div>
                   <div className="product-price">{item.price}$</div>
                   <div><StarIcon sx={{ color: orange[500] }} /><span style={{ fontWeight: 'bold' }}>{item.rating.rate}</span> {" "} <CircleIcon sx={
@@ -314,7 +326,7 @@ function Electronics() {
                 </Link>
                 <div className="product-buttons">
                   <div>
-                    <button className="Addbasket" onClick={()=>dispatch(AddtoBasket(item))}>Sepete Ekle</button>
+                    <button className="Addbasket" onClick={()=>handleAddtoBasket(item,item.id)}>Sepete Ekle</button>
                   </div>
                 </div>
 
