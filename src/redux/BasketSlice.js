@@ -1,30 +1,23 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 
 export const basketSlice = createSlice({
     name: 'basket',
-    initialState:{
+    initialState: {
         items: [],
     },
-    reducers:{
-        AddtoBasket: (state,action)=>{
-            // const {item,count} = action.payload
-            // const findBasketitem = state.items.find(item=>item.id === id)
-            
-            // state.items.push({item,count})
-            // state.items=[...state.items, {item,count}]
+    reducers: {
+        AddtoBasket: (state, action) => {
             state.items.push(action.payload)
         },
-        AddtoBasketfromDetail : (state,action) => {
-            //  const {data,count} = action.payload
-            // console.log(action.payload)
-            // state.items=[...state.items, {data,count}]
-            console.log(action.payload)
+        AddtoBasketfromDetail: (state, action) => {
             state.items.push(action.payload)
-
+        },
+        changeCount: (state, action) => {
+            state.items = action.payload
         }
     }
 })
 
-export const {AddtoBasket,AddtoBasketfromDetail} = basketSlice.actions
+export const { AddtoBasket, AddtoBasketfromDetail, changeCount } = basketSlice.actions
 export default basketSlice.reducer

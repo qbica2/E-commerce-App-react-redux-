@@ -45,7 +45,8 @@ function Sports() {
       alert("ürün zaten sepetinizde")
       return false
     }
-    dispatch(AddtoBasket(item,id))
+    let newObj={...item,count:1}
+    dispatch(AddtoBasket(newObj))
   }
 
   if(filter.filterType === "All"){

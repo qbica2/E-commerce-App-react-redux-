@@ -17,7 +17,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-import {AddtoBasketfromDetail} from "../../redux/BasketSlice"
+import {AddtoBasketfromDetail,changeCount} from "../../redux/BasketSlice"
 
 function Details() {
     let { id } = useParams();
@@ -26,6 +26,7 @@ function Details() {
     const status = useSelector(state => state.products.status)
     const data = useSelector(state => state.products.singleProduct)
     const [number, setNumber] = useState(0)
+    const basketItems = useSelector(state=>state.basket.items)
     //datayı çekmeden render edilmesinin önüne geçmek için timeout koyduk
     const [fetch, setFetch] = useState(false)
 
@@ -52,14 +53,27 @@ function Details() {
     }
 
     const handleAddtoBasket = (data,number) => {
-            if(number === 0) {
-                alert('adet 0 olamaz')
-                return false;
-            }
-        // data= {...data,count:number}
-        // Object.assign(data,{count:number})
-        let newObj={...data,count:number}
-        dispatch(AddtoBasketfromDetail(newObj))
+        if(number === 0) {
+            alert('adet 0 olamaz')
+            return false;
+        }
+        const findBasketitem = basketItems.find(item=>item.id === data.id)
+        if(findBasketitem){
+            const newitem=basketItems.map(item=>{
+                if(item.id === data.id){
+                    return {
+                        ...item,
+                        count:item.count+number
+                    }
+                }
+                return item
+            })
+            dispatch(changeCount(newitem))
+        }else{
+            let newObj={...data,count:number}
+            dispatch(AddtoBasketfromDetail(newObj))
+        }
+
 
     }
 
