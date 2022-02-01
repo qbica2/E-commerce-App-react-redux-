@@ -74,7 +74,7 @@ function Details() {
             dispatch(AddtoBasketfromDetail(newObj))
         }
 
-
+        setNumber(0)
     }
 
     return (
