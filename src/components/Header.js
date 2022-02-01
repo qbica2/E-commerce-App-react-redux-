@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect,useState }from 'react';
 import User from "./User"
 import { Link } from "react-router-dom"
 
@@ -10,7 +10,7 @@ import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux"
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -24,17 +24,28 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 function Header() {
 
-// const numberofProducts = useSelector(state => state.user.basket).length
+    // const numberofProducts = useSelector(state => state.user.basket).length
+    const [total,setTotal] = useState(0)
 
-const isLoggedIn = useSelector(state => state.user.isLoggedIn)
-const items = useSelector(state => state.basket.items)
+    const isLoggedIn = useSelector(state => state.user.isLoggedIn)
+    const basketItems = useSelector(state => state.basket.items)
 
-let sum;
+    useEffect(() => {
+
+        function count(item){
+            return item.count;
+          }
+         setTotal(basketItems.map(count).reduce((a, b) => a + (b || 0), 0))
+
+    }, [basketItems])
+
+
+  
 
     return (
         <div className="header">
             <div className="logo-container">
-                <Link to="/"className="logo">Qbica </Link>
+                <Link to="/" className="logo">Qbica </Link>
             </div>
             <div className="search-container">
                 <label htmlFor="">
@@ -47,7 +58,7 @@ let sum;
 
             <div className="basket-container">
                 <IconButton aria-label="cart">
-                    <StyledBadge badgeContent={sum} color="warning">
+                    <StyledBadge badgeContent={total} color="warning">
                         <ShoppingCartIcon />
                     </StyledBadge>
                 </IconButton>
