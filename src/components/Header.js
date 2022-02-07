@@ -62,7 +62,7 @@ function Header() {
                         <ShoppingCartIcon />
                     </StyledBadge>
                 </IconButton>
-                <Link to="/" className="b">Sepetim</Link>
+                <Link to="/basket" className="b">Sepetim</Link>
             </div>
         </div>
     )

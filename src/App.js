@@ -9,6 +9,7 @@ import Sports from "./Pages/Products/Sports"
 import Games from "./Pages/Products/Games"
 import Jewelery from "./Pages/Products/Jewelery"
 import Details from "./Pages/Products/Details"
+import Basket from "./Pages/Basket"
 
 import {
   BrowserRouter as Router,
@@ -30,9 +31,9 @@ function App() {
           <Route  path="/sports" element={<Sports/>} />
           <Route  path="/games" element={<Games/>} />
           <Route  path="/jewelery" element={<Jewelery/>} />
-          <Route  path="/login" element={<Login/>} />
           <Route path="/:id" element={<Details/>} />
-          
+          <Route  path="/login" element={<Login/>} />
+          <Route  path="/basket" element={<Basket/>} />
         </Routes>
     </Router>
   );

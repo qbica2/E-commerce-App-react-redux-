@@ -1,0 +1,55 @@
+.basket-big-container{
+    background-color: aqua;
+    width: 80%;
+    
+    display: flex;
+    justify-content: space-around;
+  
+}
+.basket-items{
+    background-color: #fff;
+    width: 50vw;
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    
+
+}
+.basket-right{
+    background-color: yellow;
+    width: 20vw;
+    height: 80vh;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+}
+
+.basket-item{
+    background-color: #cacaca;
+    width: 50vw;
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    resize: none;
+    
+  
+}
+.basket-item-img{
+    flex:0 30%;
+    height: 80%;
+    background-color: #011aba;
+}
+.basket-item-details{
+    flex:0 60%;
+    height: 80%;
+    background-color: pink
+
+}
+.basket-img{
+    width: 100%;
+    height: 100%;
+}
