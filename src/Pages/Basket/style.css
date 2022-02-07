@@ -28,9 +28,12 @@
 }
 
 .basket-item{
-    background-color: #cacaca;
+    
     width: 50vw;
     height: 20vh;
+
+    border: 1px solid #ccc;
+
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -41,15 +44,28 @@
 .basket-item-img{
     flex:0 30%;
     height: 80%;
-    background-color: #011aba;
+    
 }
 .basket-item-details{
     flex:0 60%;
     height: 80%;
-    background-color: pink
+
+    display: flex;
+    justify-content: space-between;
 
 }
 .basket-img{
     width: 100%;
     height: 100%;
+}
+
+.basket-item-title-price{
+    flex:0 60%;
+}
+.basket-item-buttons{
+    flex: 0 25%;
+}
+.delete-icon-div{
+    display: flex;
+    justify-content: center;
 }

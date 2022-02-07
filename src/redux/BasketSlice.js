@@ -17,6 +17,9 @@ export const basketSlice = createSlice({
         changeCount: (state, action) => {
             state.items = action.payload
         },
+        countIncrement: (state, action) => {
+            
+        }
     }
 })
 

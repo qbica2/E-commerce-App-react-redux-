@@ -1,6 +1,6 @@
 import React, { useEffect,useState }from 'react';
 import User from "./User"
-import { Link } from "react-router-dom"
+import { Link,useNavigate } from "react-router-dom"
 
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -30,6 +30,8 @@ function Header() {
     const isLoggedIn = useSelector(state => state.user.isLoggedIn)
     const basketItems = useSelector(state => state.basket.items)
 
+    const navigate = useNavigate()
+
     useEffect(() => {
 
         function count(item){
@@ -57,7 +59,7 @@ function Header() {
             <User />
 
             <div className="basket-container">
-                <IconButton aria-label="cart">
+                <IconButton aria-label="cart" onClick={()=>navigate("/basket")}>
                     <StyledBadge badgeContent={total} color="warning">
                         <ShoppingCartIcon />
                     </StyledBadge>
