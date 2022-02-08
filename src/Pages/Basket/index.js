@@ -53,8 +53,14 @@ function Basket() {
     <div className="App">
       <Header />
       <Catagories />
+
       <div className="basket-big-container">
+        
         <div className="basket-items">
+        <div className="basket-header">
+        <div>Sepetim {basket.length===0 ? "" : <span style={{paddingLeft: 10,fontSize: 20}}>{basket.length} ürün</span>} </div>
+        {basket.length===0 ? "" : <button className="delete-all-button" onClick={()=>dispatch(changeCount([]))}>Tümünü sil</button>}
+        </div>
           {basket.map((item) => (
             <div className="basket-item">
               <div className="basket-item-img">

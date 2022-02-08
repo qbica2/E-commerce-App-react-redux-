@@ -1,7 +1,8 @@
+
 .basket-big-container{
-    background-color: aqua;
+
     width: 80%;
-    
+    margin-top: 40px;
     display: flex;
     justify-content: space-around;
   
@@ -13,9 +14,23 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: flex-start;
     
+
+}
+.basket-header{
+    width:50vw;
+    font-size: 36px;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+
+}
+.delete-all-button{
+    border:none;
+    align-self: flex-end;
+    font-size: 24px;
 
 }
 .basket-right{
