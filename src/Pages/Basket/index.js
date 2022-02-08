@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState, useEffect} from "react";
 import Header from "../../components/Header";
 import Catagories from "../../components/Catagories";
 
@@ -10,10 +10,19 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 import { useSelector, useDispatch } from "react-redux";
 import {changeCount} from "../../redux/BasketSlice"
+import {addtoOrders} from "../../redux/OrdersSlice"
 
 function Basket() {
   const dispatch = useDispatch();
   const basket = useSelector((state) => state.basket.items);
+
+  const [total,setTotal] = useState(0);
+
+  useEffect(() => {
+
+      const oneItemPrice =basket.map(item=> item.price*item.count)
+      setTotal(oneItemPrice.reduce((a, b) => a + (b || 0), 0).toFixed(2));
+}, [basket])
 
   const handleIncrease = (id) => {
     
@@ -44,9 +53,27 @@ function Basket() {
     dispatch(changeCount(newItem));
   }
 
+  const handleChange = (value,id) => {
+    const newItem= basket.map(item => {
+      if(item.id === id){
+        return{
+          ...item,
+          count: Number(value)
+        }
+        
+      }
+      return item;
+    })
+    dispatch(changeCount(newItem));
+  }
+
   const handleRemove = (id) => {
     const newItem= basket.filter(item => item.id !== id);
     dispatch(changeCount(newItem));
+  }
+
+  const handleOrder = () => {
+    console.log(basket)
   }
 
   return (
@@ -62,7 +89,7 @@ function Basket() {
         {basket.length===0 ? "" : <button className="delete-all-button" onClick={()=>dispatch(changeCount([]))}>Tümünü sil</button>}
         </div>
           {basket.map((item) => (
-            <div className="basket-item">
+            <div key={item.id} className="basket-item">
               <div className="basket-item-img">
                 <img src={item.image} alt="" className="basket-img" />
               </div>
@@ -78,7 +105,8 @@ function Basket() {
                     <DeleteForeverIcon onClick={()=>handleRemove(item.id)}/> 
                     : 
                     <RemoveIcon onClick={()=>handleDecrease(item.id)}/>}
-                    <input type="number" className="product-count" value={item.count} />
+                    <input type="number" className="product-count" value={item.count} 
+                    onChange={(e)=>handleChange(e.target.value,item.id)}/>
                     <AddIcon onClick={()=>handleIncrease(item.id)}/>
                   </div>
                   <div className="delete-icon-div"> 
@@ -89,7 +117,10 @@ function Basket() {
             </div>
           ))}
         </div>
-        <div className="basket-right"></div>
+        <div className="basket-right">
+              <div className="total-price">{total} <span style={{fontSize: '24px'}}>$</span></div>
+              <button className="total-button" onClick={()=>handleOrder()}>Alışverişi Tamamla</button>        
+        </div>
       </div>
     </div>
   );
