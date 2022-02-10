@@ -6,16 +6,6 @@ export const userSlice = createSlice({
         isLoggedIn: false,  
         email: "",
         password: "",
-        basket:[{
-            id : 1,
-            category:"electronics",
-            description:"lorem ipsum dolor"
-        },{
-            id:2,
-            category:"sports",
-            description:"lorem ipsum dolor"
-        }
-        ]
     },
     reducers:{
         login:(state) => {

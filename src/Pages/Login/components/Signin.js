@@ -20,7 +20,8 @@ function Signin() {
 
     let navigate= useNavigate()
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         if(input===""){
             alert("Please enter valid email")
             return false
@@ -41,7 +42,7 @@ function Signin() {
 
     return (
         <div className="form-container sign-in-container">
-            <form action="#" onSubmit={()=>handleSubmit()}>
+            <form action="#" onSubmit={(e)=>handleSubmit(e)}>
                 <h1 className="h1">Sign in</h1>
                 <div className="social-container">
                     <a href="#" className="social"><i><FontAwesomeIcon icon={['fab','facebook-f']} /></i></a>
