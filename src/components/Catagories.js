@@ -27,9 +27,9 @@ function Catagories() {
           All
         </Link>
         <div className="dropdown-content">
-          <a href="/">Link 1</a>
-          <a href="/">Link 2</a>
-          <a href="/">Link 3</a>
+          <a >Link 1</a>
+          <a >Link 2</a>
+          <a >Link 3</a>
         </div>
       </div>
       <div className="dropdown">
@@ -37,9 +37,9 @@ function Catagories() {
           Electronics
         </Link>
         <div className="dropdown-content">
-          <a href="/">Link 1</a>
-          <a href="/">Link 2</a>
-          <a href="/">Link 3</a>
+          <a >Link 1</a>
+          <a >Link 2</a>
+          <a >Link 3</a>
         </div>
       </div>
       <div className="dropdown">
@@ -47,9 +47,9 @@ function Catagories() {
           Women's Fashion
         </Link>
         <div className="dropdown-content">
-          <a href="/">Link 1</a>
-          <a href="/">Link 2</a>
-          <a href="/">Link 3</a>
+          <a>Link 1</a>
+          <a>Link 2</a>
+          <a>Link 3</a>
         </div>
       </div>
       <div className="dropdown">
@@ -57,9 +57,9 @@ function Catagories() {
           Men's Fashion{" "}
         </Link>
         <div className="dropdown-content">
-          <a href="/">Link 1</a>
-          <a href="/">Link 2</a>
-          <a href="/">Link 3</a>
+          <a>Link 1</a>
+          <a>Link 2</a>
+          <a>Link 3</a>
         </div>
       </div>
 
@@ -76,9 +76,9 @@ function Catagories() {
           Jewelery
         </Link>
         <div className="dropdown-content">
-          <a href="/">Link 1</a>
-          <a href="/">Link 2</a>
-          <a href="/">Link 3</a>
+          <a>Link 1</a>
+          <a>Link 2</a>
+          <a>Link 3</a>
         </div>
       </div>
     </div>
