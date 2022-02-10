@@ -1,8 +1,11 @@
 import React,{ useState, useEffect} from "react";
 import Header from "../../components/Header";
 import Catagories from "../../components/Catagories";
+import Empty from "./Empty";
 
 import "./style.css";
+
+import {useNavigate} from "react-router-dom"
 
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -15,8 +18,11 @@ import {addtoOrders} from "../../redux/OrdersSlice"
 function Basket() {
   const dispatch = useDispatch();
   const basket = useSelector((state) => state.basket.items);
+  const isLoggedIn= useSelector(state => state.user.isLoggedIn);
 
   const [total,setTotal] = useState(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -73,20 +79,26 @@ function Basket() {
   }
 
   const handleOrder = () => {
-    console.log(basket)
+
+    const newObj = {
+      id:Math.floor(Math.random() * 10000000) + 1, 
+      products:basket, 
+      date:new Date().toLocaleString(["en-GB"]),
+      total:total 
+     }
+     dispatch(changeCount([]))
+     dispatch(addtoOrders(newObj));
   }
 
   return (
     <div className="App">
       <Header />
       <Catagories />
-
-      <div className="basket-big-container">
-        
+      {basket.length=== 0 ? <Empty/> :<div className="basket-big-container">
         <div className="basket-items">
         <div className="basket-header">
-        <div>Sepetim {basket.length===0 ? "" : <span style={{paddingLeft: 10,fontSize: 20}}>{basket.length} ürün</span>} </div>
-        {basket.length===0 ? "" : <button className="delete-all-button" onClick={()=>dispatch(changeCount([]))}>Tümünü sil</button>}
+        <div>Shopping Cart {basket.length===0 ? "" : <span style={{paddingLeft: 10,fontSize: 20}}>{basket.length} {basket.length===1 ? "product" : "products"}</span>} </div>
+        {basket.length===0 ? "" : <button className="delete-all-button" onClick={()=>dispatch(changeCount([]))}>Delete All</button>}
         </div>
           {basket.map((item) => (
             <div key={item.id} className="basket-item">
@@ -119,9 +131,11 @@ function Basket() {
         </div>
         <div className="basket-right">
               <div className="total-price">{total} <span style={{fontSize: '24px'}}>$</span></div>
-              <button className="total-button" onClick={()=>handleOrder()}>Alışverişi Tamamla</button>        
+              
+              {isLoggedIn ? <button className="total-button" onClick={()=>handleOrder()}>Complete the Order</button> : <button className="total-button" onClick={()=>navigate("/login")}>Sign in to Continue</button>}       
         </div>
-      </div>
+      </div> }
+      
     </div>
   );
 }

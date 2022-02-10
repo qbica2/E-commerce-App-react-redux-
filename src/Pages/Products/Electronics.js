@@ -322,11 +322,11 @@ function Electronics() {
                   <div >{item.title}</div>
                   <div className="product-price">{item.price}$</div>
                   <div><StarIcon sx={{ color: orange[500] }} /><span style={{ fontWeight: 'bold' }}>{item.rating.rate}</span> {" "} <CircleIcon sx={
-                    { fontSize: 6, color: grey[800] }} /> <span style={{ fontWeight: 'bold' }}>{item.rating.count}</span>  Değerlendirme</div>
+                    { fontSize: 6, color: grey[800] }} /> <span style={{ fontWeight: 'bold' }}>{item.rating.count}</span>  Reviews </div>
                 </Link>
                 <div className="product-buttons">
                   <div>
-                    <button className="Addbasket" onClick={()=>handleAddtoBasket(item,item.id)}>Sepete Ekle</button>
+                    <button className="Addbasket" onClick={()=>handleAddtoBasket(item,item.id)}>Add to Cart</button>
                   </div>
                 </div>
 

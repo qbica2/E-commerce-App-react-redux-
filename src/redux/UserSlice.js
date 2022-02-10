@@ -3,7 +3,7 @@ import {createSlice} from "@reduxjs/toolkit"
 export const userSlice = createSlice({
     name: 'user',
     initialState:{
-        isLoggedIn: false,
+        isLoggedIn: false,  
         email: "",
         password: "",
         basket:[{
@@ -18,10 +18,10 @@ export const userSlice = createSlice({
         ]
     },
     reducers:{
-        login:(state,action) => {
+        login:(state) => {
             state.isLoggedIn =true
         },
-        logout:(state,action) => {
+        logout:(state) => {
             state.isLoggedIn =false
         },
         saveMail: (state,action)=> {

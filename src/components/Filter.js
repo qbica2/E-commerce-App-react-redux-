@@ -3,7 +3,7 @@ import { Checkbox } from '@mui/material'
 
 import StarIcon from '@mui/icons-material/Star';
 
-import { orange } from "@mui/material/colors"
+import { orange,blueGrey } from "@mui/material/colors"
 
 import { changeFilterType, checkedFourStar, checkedThreeStar, checkedTwoStar, checkedOneStar } from "../redux/ProductsSlice"
 import { useSelector, useDispatch } from "react-redux"
@@ -30,9 +30,9 @@ function Filter() {
 
     return (
         <div className="filterbar">
-            <button onClick={() => hanldleClearAllFilters()}>Clear All Filters</button>
+            <button className="clear-all" onClick={() => hanldleClearAllFilters()}>Clear All Filters</button>
             <div className="price-filter">
-                <div className="filter-header">Fiyat Aralığı</div>
+                <div className="filter-header">Price</div>
                 <button
                     id="1"
                     className="filter-button"
@@ -75,51 +75,51 @@ function Filter() {
                 </button>
             </div>
             <div className="rate-filter">
-                <div className="filter-header">Değerlendirme Sayısı</div>
+                <div className="filter-header">Avg. Customer Review</div>
                 <div>
                     <Checkbox
-                        sx={{ '& .MuiSvgIcon-root': { fontSize: 40, color: orange[800] } }}
+                        sx={{ '& .MuiSvgIcon-root': { fontSize: 40, color: blueGrey[900] } }}
                         checked={filter.fourStarCheck ? true : false}
                         onChange={(e) => dispatch(checkedFourStar(e.target.checked))} />
                     <StarIcon sx={{ color: orange[500] }} /> 
                     4 +
-                    <span className="text">  puan </span>
+                    <span className="text">  point </span>
                 </div>
                 <div>
                     <Checkbox
-                        sx={{ '& .MuiSvgIcon-root': { fontSize: 40, color: orange[800] } }}
+                        sx={{ '& .MuiSvgIcon-root': { fontSize: 40, color: blueGrey[900] } }}
                         checked={filter.threeStarCheck ? true : false}
                         onChange={(e) => dispatch(checkedThreeStar(e.target.checked))} />
                     <StarIcon sx={{ color: orange[500] }} /> 
                     3 - 3.9
-                    <span className="text">  puan </span>
+                    <span className="text">  point </span>
                 </div>
                 <div>
                     <Checkbox
-                        sx={{ '& .MuiSvgIcon-root': { fontSize: 40, color: orange[800] } }}
+                        sx={{ '& .MuiSvgIcon-root': { fontSize: 40, color: blueGrey[900] } }}
                         checked={filter.twoStarCheck ? true : false}
                         onChange={(e) => dispatch(checkedTwoStar(e.target.checked))} />
                     <StarIcon sx={{ color: orange[500] }} /> 
                     2 - 2.9
-                    <span className="text">  puan </span>
+                    <span className="text">  point </span>
                 </div>
                 <div>
                     <Checkbox
-                        sx={{ '& .MuiSvgIcon-root': { fontSize: 40, color: orange[800] } }}
+                        sx={{ '& .MuiSvgIcon-root': { fontSize: 40, color: blueGrey[900] } }}
                         checked={filter.oneStarCheck ? true : false}
                         onChange={(e) => dispatch(checkedOneStar(e.target.checked))} />
                     <StarIcon sx={{ color: orange[500] }} /> 
                     1 - 1.9
-                    <span className="text">  puan </span>
+                    <span className="text">  point </span>
                 </div>
             </div>
-            <div className="count-filter">
+            {/* <div className="count-filter">
                 <div className="filter-header">Yorum Sayısı</div>
                 <div><Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 40, color: orange[800] } }} /> 0 - 100 <span className="text">  yorum </span></div>
                 <div><Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 40, color: orange[800] } }} /> 100 - 250 <span className="text">  yorum </span></div>
                 <div><Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 40, color: orange[800] } }} /> 250 - 500 <span className="text">  yorum </span></div>
                 <div><Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 40, color: orange[800] } }} /> 500 + <span className="text">  yorum </span></div>
-            </div>
+            </div> */}
         </div>
     );
 }

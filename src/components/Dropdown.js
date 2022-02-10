@@ -11,14 +11,14 @@ function DropdownFilter() {
     return <div className="dropdown-container">
         <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-                Sıralama
+                Sort By 
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-                <Dropdown.Item  onClick={()=>dispatch(sortByReviews())}>Değerlendirme Sayısı</Dropdown.Item>
-                <Dropdown.Item onClick={()=>dispatch(sortByRate())}>Ürün Puanı</Dropdown.Item>
-                <Dropdown.Item onClick={()=>dispatch(sortByPriceInc())}>Fiyat Artan</Dropdown.Item>
-                <Dropdown.Item onClick={()=>dispatch(sortByPriceDec())}>Fiyat Azalan</Dropdown.Item>
+                <Dropdown.Item  onClick={()=>dispatch(sortByReviews())}>Total Reviews</Dropdown.Item>
+                <Dropdown.Item onClick={()=>dispatch(sortByRate())}>Avg. Customer Review</Dropdown.Item>
+                <Dropdown.Item onClick={()=>dispatch(sortByPriceInc())}>Price: Low to High</Dropdown.Item>
+                <Dropdown.Item onClick={()=>dispatch(sortByPriceDec())}>Price: High to Low</Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
     </div>;

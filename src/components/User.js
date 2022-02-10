@@ -10,7 +10,7 @@ import { useSelector,useDispatch } from "react-redux"
 import {logout} from "../redux/UserSlice"
 
 function User() {
-    const [infoClicked, setInfoClicked] = useState(false)
+    const [infoClicked, setInfoClicked] = useState(false) 
     const isLoggedIn = useSelector(state => state.user.isLoggedIn)
     const email = useSelector(state => state.user.email)
 
@@ -29,9 +29,9 @@ function User() {
                     infoClicked ?
                         <div className="info-clicked">
                             <div className="options">
-                                <Link to="/">Siparişlerim</Link>
-                                <Link to="/">Cüzdanım</Link>
-                                <Link to="/" onClick={()=>handleLogOut()}>Çıkış yap</Link>
+                                <Link to="/orders">Orders</Link>
+                                <Link to="/">Wallet</Link>
+                                <Link to="/" onClick={()=>handleLogOut()}>Log Out</Link>
                             </div>
                             <div>
                                 <ArrowDropUpIcon onClick={() => setInfoClicked(false)} />
@@ -41,7 +41,7 @@ function User() {
                         <div className="user-bar">
                             <PersonOutlineIcon />
                             <div className="user-inside-bar">
-                                <div className="hesabım">Hesabım</div>
+                                <div className="hesabım">Account</div>
                                 <div className="username">{email}</div>
                             </div>
                             <KeyboardArrowDownIcon onClick={() => setInfoClicked(true)} />
@@ -55,8 +55,8 @@ function User() {
         return(
             <div className="unlogged-user-container">
                 <PersonOutlineIcon />
-                <Link to="/login" className="a">Giriş Yap</Link>
-                <Link to="/login" className="a">Üye ol</Link>
+                <Link to="/login" className="a">Login</Link>
+                <Link to="/login" className="a">Sign Up</Link>
 
             </div>
         )

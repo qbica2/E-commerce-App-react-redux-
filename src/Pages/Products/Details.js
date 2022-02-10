@@ -4,7 +4,7 @@ import Header from '../../components/Header'
 import Catagories from '../../components/Catagories'
 import Loading from '../../components/Loading'
 
-import { getSingleProduct, incrementNumber, decrementNumber } from "../../redux/ProductsSlice"
+import { getSingleProduct, } from "../../redux/ProductsSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import StarIcon from '@mui/icons-material/Star';
@@ -95,7 +95,7 @@ function Details() {
 
                     {fetch && data.rating.rate < 2 && data.rating.rate > 1 && <div>{data.rating.rate}<StarIcon sx={{ color: orange[500] }} /><StarHalfIcon sx={{ color: orange[500] }} /></div>}
                     {fetch && data.rating.rate < 1 && data.rating.rate > 0 && <div>{data.rating.rate}<StarHalfIcon sx={{ color: orange[500] }} /></div>}
-                    <div >{fetch && data.rating.count}<span className="detail-description">Değerlendirme</span></div>
+                    <div >{fetch && data.rating.count}<span className="detail-description">Reviews </span></div>
                     <div className="detail-bottom">
                         <div className="product-count-container">
                             <RemoveIcon onClick={() => handleDecrement()} className="decrement" />
@@ -104,7 +104,7 @@ function Details() {
                         </div>
                         
                             <button className="detail-addbasket" 
-                            onClick={()=>handleAddtoBasket(data,number)}><ShoppingCartIcon sx={{ color: grey[50] }}/>Sepete Ekle</button>
+                            onClick={()=>handleAddtoBasket(data,number)}><ShoppingCartIcon sx={{ color: grey[50] }}/>Add to Cart</button>
                         
                     </div>
 

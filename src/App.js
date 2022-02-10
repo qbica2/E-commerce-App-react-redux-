@@ -5,11 +5,12 @@ import Login from './Pages/Login/index.js'
 import Electronics from "./Pages/Products/Electronics"
 import Women from "./Pages/Products/Women"
 import Man from "./Pages/Products/Man"
-import Sports from "./Pages/Products/Sports"
-import Games from "./Pages/Products/Games"
+import All from "./Pages/Products/All"
+
 import Jewelery from "./Pages/Products/Jewelery"
 import Details from "./Pages/Products/Details"
 import Basket from "./Pages/Basket"
+import Orders from "./Pages/Orders"
 
 import {
   BrowserRouter as Router,
@@ -28,12 +29,12 @@ function App() {
           <Route  path="/electronics" element={<Electronics/>} />
           <Route  path="/women" element={<Women/>} />
           <Route  path="/man" element={<Man/>} />
-          <Route  path="/sports" element={<Sports/>} />
-          <Route  path="/games" element={<Games/>} />
+          <Route  path="/all" element={<All/>} />
           <Route  path="/jewelery" element={<Jewelery/>} />
           <Route path="/:id" element={<Details/>} />
           <Route  path="/login" element={<Login/>} />
           <Route  path="/basket" element={<Basket/>} />
+          <Route  path="/orders" element={<Orders/>} />
         </Routes>
     </Router>
   );

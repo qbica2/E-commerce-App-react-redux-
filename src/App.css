@@ -8,7 +8,7 @@
 .header{
   width: 100vw;
   height: 10vh;
-  background-color:yellowgreen;
+  background-color:#0f2027;
 
 
   display:flex;
@@ -17,19 +17,23 @@
 }
 
 .logo-container{
-  flex: 0 20%;
+  flex: 0 15%;
   font-size: 5vh;
 }
 .search-container{
-  flex: 0 40%;
-  height:7vh;
+  flex: 0 50%;
+  height:6vh;
   display: flex;
   align-items: center;
+  
 }
 .logo{
   text-decoration: none;
-  color: #000;
+  color: #fff;
   font-size:5vh;
+}
+.logo:hover{
+  color: #fff;
 }
 .search-icon{
   position: relative;
@@ -40,6 +44,7 @@
   width: 100%;
   height: 100%;
   padding: 0 0 0 40px  ;
+  border-radius: 10px;
 }
 .user-container{
   flex: 0 10%;
@@ -86,6 +91,9 @@
 }
 .b{
   text-decoration: none;
+  color: #000;
+}
+.b:hover{
   color: #000;
 }
 
@@ -135,8 +143,8 @@
 
 /* ======================== NAVBAR=========================================*/
 .navbar{
-  background-color:#f5f5f5;
-  width:100vw;
+  
+  width:70vw;
   height:10vh;
   
   display: flex;
@@ -155,6 +163,7 @@
 
 .category:hover{
   text-decoration: underline;
+  color: #646464;
 }
 .dropdown {
   position: relative;
@@ -194,9 +203,9 @@
 /* =========== Filter Bar=================== */
 
 .filterbar{
-  height:150vh;
+  height:120vh;
   flex:0 20%;
-  /* background-color:red; */
+  
 
   display: flex;
   flex-direction: column;
@@ -231,4 +240,13 @@
   border: none;
 
   text-align: start;
+}
+.clear-all{
+  width: 200px;
+  height: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  text-align: start;
+  color:#0f2027
 }

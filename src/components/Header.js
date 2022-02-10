@@ -27,7 +27,7 @@ function Header() {
     // const numberofProducts = useSelector(state => state.user.basket).length
     const [total,setTotal] = useState(0)
 
-    const isLoggedIn = useSelector(state => state.user.isLoggedIn)
+    
     const basketItems = useSelector(state => state.basket.items)
 
     const navigate = useNavigate()
@@ -64,7 +64,7 @@ function Header() {
                         <ShoppingCartIcon />
                     </StyledBadge>
                 </IconButton>
-                <Link to="/basket" className="b">Sepetim</Link>
+                <Link to="/basket" className="b">Cart</Link>
             </div>
         </div>
     )

@@ -73,16 +73,16 @@
 }
 
 .Addbasket{
-    border:1px solid #ff6000;
-    background-color: #ff6000;
+    border:1px solid #0f2027;
+    background-color: #0f2027;
     width: 200px;
     height: 50px;
-
+    color: #fff;
     border-radius:10px;
     font-weight: 600;
 }
 
-.Addbasket:focus{
+.Addbasket:active{
     background-color:green
 }
 
