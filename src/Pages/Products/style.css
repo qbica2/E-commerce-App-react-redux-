@@ -85,6 +85,16 @@
 .Addbasket:active{
     background-color:green
 }
+.Addbasket-green{
+    background-color:green;
+    border:1px solid green;
+    width: 200px;
+    height: 50px;
+    color: #fff;
+    border-radius:10px;
+    font-weight: 600;
+}
+
 
 /* =================== Details==================== */
 .detail-container{
@@ -140,13 +150,16 @@
     cursor: pointer;
 }
 .detail-addbasket{
-    border:1px solid #ff6000;
-    background-color: #ff6000;
     width: 200px;
     height: 60px;
     color: #fff;
     border-radius:10px;
     font-weight: 600;
+    border:1px solid #0f2027;
+    background-color: #0f2027;
+}
+.detail-addbasket:active{
+    background-color:green
 }
 .detail-bottom{
     width: 350px;

@@ -16,6 +16,8 @@ import { orange } from "@mui/material/colors"
 import { grey } from "@mui/material/colors"
 import CircleIcon from '@mui/icons-material/Circle';
 
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
 
 import { Link } from "react-router-dom"
 
@@ -42,7 +44,7 @@ function Sports() {
   const handleAddtoBasket = (item,id) => {
     const findBasketitem = basketItems.find(item=>item.id === id)
     if(findBasketitem){
-      alert("ürün zaten sepetinizde")
+      alert("The product is already in your cart.")
       return false
     }
     let newObj={...item,count:1}
@@ -312,7 +314,9 @@ function Sports() {
         <Filter />
         <div className="products-content" >
           {
-             filtered.map((item) => (
+             filtered.map((item) =>
+              (
+               
               <div key={item.id} className="product">
                 <Link to={`/${item.id}`} className="product-image-div">
                   <img src={item.image} alt={item.category} className="product-image" />
@@ -325,7 +329,8 @@ function Sports() {
                 </Link>
                 <div className="product-buttons">
                   <div>
-                    <button className="Addbasket" onClick={()=>handleAddtoBasket(item,item.id)}>Add to Cart</button>
+
+                  {basketItems.find(e=>e.id=== item.id)?<button className="Addbasket-green" onClick={()=>handleAddtoBasket(item,item.id)}>Added to Cart <CheckCircleIcon /></button>:                  <button className="Addbasket" onClick={()=>handleAddtoBasket(item,item.id)}>Add to Cart</button>}
                   </div>
                 </div>
 

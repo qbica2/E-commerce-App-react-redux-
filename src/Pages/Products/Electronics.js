@@ -16,6 +16,8 @@ import { orange } from "@mui/material/colors"
 import { grey } from "@mui/material/colors"
 import CircleIcon from '@mui/icons-material/Circle';
 
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
 
 import { Link } from "react-router-dom"
 
@@ -326,7 +328,7 @@ function Electronics() {
                 </Link>
                 <div className="product-buttons">
                   <div>
-                    <button className="Addbasket" onClick={()=>handleAddtoBasket(item,item.id)}>Add to Cart</button>
+                  {basketItems.find(e=>e.id=== item.id)?<button className="Addbasket-green" onClick={()=>handleAddtoBasket(item,item.id)}>Added to Cart <CheckCircleIcon /></button>:                  <button className="Addbasket" onClick={()=>handleAddtoBasket(item,item.id)}>Add to Cart</button>}
                   </div>
                 </div>
 

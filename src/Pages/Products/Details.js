@@ -54,7 +54,7 @@ function Details() {
 
     const handleAddtoBasket = (data,number) => {
         if(number === 0) {
-            alert('adet 0 olamaz')
+            alert('please enter a valid number')
             return false;
         }
         const findBasketitem = basketItems.find(item=>item.id === data.id)
@@ -89,11 +89,11 @@ function Details() {
                     <div>{data.title}</div>
                     <div className="detail-description">{data.description}</div>
                     <div className="detail-price">{data.price}$ </div>
-                    {fetch && data.rating.rate < 5 && data.rating.rate > 4 && <div>{data.rating.rate}<StarIcon sx={{ color: orange[500] }} /><StarIcon sx={{ color: orange[500] }} /><StarIcon sx={{ color: orange[500] }} /><StarIcon sx={{ color: orange[500] }} /><StarHalfIcon sx={{ color: orange[500] }} /></div>}
-                    {fetch && data.rating.rate < 4 && data.rating.rate > 3 && <div>{data.rating.rate}<StarIcon sx={{ color: orange[500] }} /><StarIcon sx={{ color: orange[500] }} /><StarIcon sx={{ color: orange[500] }} /><StarHalfIcon sx={{ color: orange[500] }} /></div>}
-                    {fetch && data.rating.rate < 3 && data.rating.rate > 2 && <div>{data.rating.rate}<StarIcon sx={{ color: orange[500] }} /><StarIcon sx={{ color: orange[500] }} /><StarHalfIcon sx={{ color: orange[500] }} /></div>}
+                    {fetch && data.rating.rate < 5 && data.rating.rate >= 4 && <div>{data.rating.rate}<StarIcon sx={{ color: orange[500] }} /><StarIcon sx={{ color: orange[500] }} /><StarIcon sx={{ color: orange[500] }} /><StarIcon sx={{ color: orange[500] }} /><StarHalfIcon sx={{ color: orange[500] }} /></div>}
+                    {fetch && data.rating.rate < 4 && data.rating.rate >= 3 && <div>{data.rating.rate}<StarIcon sx={{ color: orange[500] }} /><StarIcon sx={{ color: orange[500] }} /><StarIcon sx={{ color: orange[500] }} /><StarHalfIcon sx={{ color: orange[500] }} /></div>}
+                    {fetch && data.rating.rate < 3 && data.rating.rate >= 2 && <div>{data.rating.rate}<StarIcon sx={{ color: orange[500] }} /><StarIcon sx={{ color: orange[500] }} /><StarHalfIcon sx={{ color: orange[500] }} /></div>}
 
-                    {fetch && data.rating.rate < 2 && data.rating.rate > 1 && <div>{data.rating.rate}<StarIcon sx={{ color: orange[500] }} /><StarHalfIcon sx={{ color: orange[500] }} /></div>}
+                    {fetch && data.rating.rate < 2 && data.rating.rate >= 1 && <div>{data.rating.rate}<StarIcon sx={{ color: orange[500] }} /><StarHalfIcon sx={{ color: orange[500] }} /></div>}
                     {fetch && data.rating.rate < 1 && data.rating.rate > 0 && <div>{data.rating.rate}<StarHalfIcon sx={{ color: orange[500] }} /></div>}
                     <div >{fetch && data.rating.count}<span className="detail-description">Reviews </span></div>
                     <div className="detail-bottom">
